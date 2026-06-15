@@ -30,6 +30,13 @@ class MarketData(BaseModel):
             raise ValueError("demand_matrix должна быть размером 2x2")
         return v
 
+    @validator('costs_a', 'costs_b', pre=True)
+    def validate_costs(cls, v):
+        """Валидация: себестоимость не может быть отрицательной"""
+        if any(cost < 0 for cost in v):
+            raise ValueError('Себестоимость не может быть отрицательной')
+        return v
+
     def calculate_profit_matrices(self, prices_a: List[float], prices_b: List[float]) -> Tuple[
         List[List[float]], List[List[float]]]:
         """
