@@ -1,6 +1,13 @@
+# Основные зависимости
 fastapi==0.104.1
 uvicorn==0.24.0
 nashpy==0.0.40
 numpy==2.4.6
 pulp==2.7.0
 pydantic==2.5.0
+
+# Для тестирования
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-asyncio==0.21.1
+httpx==0.25.1
